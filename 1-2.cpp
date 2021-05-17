@@ -7,15 +7,12 @@
 
 #include <iostream>
 #include <cmath>
-//#include <Windows.h>
 using namespace std;
 
 double GetVolume(const double r, const double a);
 double GetSquare(const double r, const double a);
 
 int main() {
-    //SetConsoleOutputCP(1251);
-   // SetConsoleCP(1251);
     double r;
     double a;
     cout << "Введите радиус сферы и угол при вершине конуса (в радианах):\n";
