@@ -25,13 +25,13 @@ int main() {
 }
 
 double GetVolume(const double r, const double a) {
-    const double pi = 3.141592653589793;
-    auto volume = pi * pow(r, 3) * (1 + cos(a)) * pow(sin(2 * a), 2) / 3;
+    const double M_PI;
+    auto volume = M_PI * pow(r, 3) * (1 + cos(a)) * pow(sin(2 * a), 2) / 3;
     return volume;
 }
 
 double GetSquare(const double r, const double a) {
-    const double pi = 3.141592653589793;
-    auto square = pi * pow(r, 2) * sin(2 * a) * (sin(2 * a) + 2 * cos(a));
+    const double M_PI;
+    auto square = M_PI * pow(r, 2) * sin(2 * a) * (sin(2 * a) + 2 * cos(a));
     return square;
 }
