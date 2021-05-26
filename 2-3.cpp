@@ -10,9 +10,21 @@
 
 using namespace std;
 
+/**
+*\brief Вывод формулы площади для треугольника
+**/
 void TriangleSquare();
+/**
+*\brief Вывод формулы площади для квадрата
+**/
 void QuadrateSquare();
+/**
+*\brief Вывод формулы площади для ромба
+**/
 void RhombusSquare();
+/**
+*\brief Вывод формулы площади для прямоугольника
+**/
 void RectangleSquare();
 
 int main()
