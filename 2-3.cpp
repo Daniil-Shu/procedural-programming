@@ -2,62 +2,71 @@
 //  main.cpp
 //  2-3
 //
-//  Created by Даниил Шуриков on 09.05.2021.
+//  Created by Даниил Шуриков on 17.05.2021.
 //
 
 #include <iostream>
-#include <cmath>
+#include <string>
 
 using namespace std;
 
-void Треугольник()
-{
-    cout << "Треугольник";
-}
-void Квадрат()
-{
-    cout << "Квадрат";
-}
-void Ромб()
-{
-    cout << "Ромб";
-}
- void Прямоугольник()
-{
-    cout << "Прямоугольник";
-}
+/**
+*\brief Вывод формулы площади для треугольника
+**/
+void TriangleSquare();
+/**
+*\brief Вывод формулы площади для квадрата
+**/
+void QuadrateSquare();
+/**
+*\brief Вывод формулы площади для ромба
+**/
+void RhombusSquare();
+/**
+*\brief Вывод формулы площади для прямоугольника
+**/
+void RectangleSquare();
+
 int main()
 {
-  int input;
- 
-  cout<<"1. Треугольник\n";
-  cout<<"2. Квадрат\n";
-  cout<<"3. Ромб\n";
-  cout<<"4. Прямоугольник\n";
-  cout<<"5. Параллелорграмм\n";
-  cout<<"Выберите фигуру: ";
-  cin>> input;
-  switch ( input )
-  {
-  case 1:
-    cout << "S = (ah)/2 \n";
+
+int figure;
+    cout << "Выберите фигуру и введите ее порядковый номер: \n" << "Треугольник - 1\n" << "Квадрат - 2\n" << "Ромб - 3\n" << "Прямоугольник - 4\n";
+    
+    cin >> figure;
+    switch (figure)
+    {
+case 1:
+TriangleSquare();
     break;
-  case 2:
-    cout << "S = a * и \n";
+case 2:
+QuadrateSquare();
     break;
-  case 3:
-    cout << "S = (d1 * d2) / 2 \n";
+case 3:
+RhombusSquare();
     break;
-  case 4:
-    cout<<"S = (a * b) / 2 \n";
+case 4:
+RectangleSquare();
     break;
-  case 5:
-    cout<<"S = ah \n";
-    break;
-  default:
-    cout<<"Ошибка\n";
-    break;
-  }
-  cin.get();
+    }
 }
 
+void TriangleSquare ()
+{
+    cout << "S = 1/2 * a * h, где а - основание треугольника, h - высота, проведенная к основанию а";
+}
+
+void QuadrateSquare()
+{
+    cout << "S = a * a, где а - сторона квадрата";
+}
+
+void RhombusSquare()
+{
+    cout << "S = 1/2 * d1 * d2, где d1, d2 - диагонали ромба";
+}
+ 
+void RectangleSquare()
+{
+    cout << "S = a * b, где a, b - смежные стороны прямоугольника";
+}

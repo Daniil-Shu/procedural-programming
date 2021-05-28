@@ -1,31 +1,29 @@
 //
 //  main.cpp
-//  1-2
+//  1-3
 //
-//  Created by Даниил Шуриков on 28.04.2021.
+//  Created by Даниил Шуриков on 17.05.2021.
 //
 
 #include <iostream>
-#include <math.h>
-#include <stdio.h>
-
-
 using namespace std;
 
-int main()
+double GetDistance(const double a, const double f);
 
-{
+int main() {
+    double a;
+    double f;
+    cout << "Введите количество совершенной работы (в МДж) и величину силы тяги (в кН):\n";
+    cin >> a;
+    cin >> f;
+    const auto distance = GetDistance(a, f);
+    cout << "Длина пройденного пути равна: " << distance << " м";
+}
 
-    int f;
-    int a;
-    int s;
-
-    cin >> a >> f;
-    
-    s=a/f;
-    printf("Определяем путь, пройденный автомобилем. S=a/f\n");
-    printf("f=%d a=%d s=%d\n",f, a, s);
-    
-    return 0;
+double GetDistance(double a, double f) {
+    a = a * 1000000;
+    f = f * 1000;
+    const auto distance = a / f;
+    return distance;
 }
 

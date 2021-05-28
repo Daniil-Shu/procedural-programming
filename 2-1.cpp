@@ -1,36 +1,164 @@
 //
 //  main.cpp
-//  2-1
+//  1-2
 //
-//  Created by Даниил Шуриков on 29.04.2021.
+//  Created by Даниил Шуриков on 17.05.2021.
 //
-
 #include <iostream>
-#include <string>
 
 using namespace std;
 
+/**
+* \brief Пользовательский выбор вывода или месяца (0),
+* или дня недели (1)
+*/
+enum class mainChoice { month, day };
+
+/**
+* \brief Пользовательский выбор вывода названия месяца (значения от 1 до 12)
+*/
+enum class months { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+
+/**
+* \brief Пользовательский выбор вывода названия дня недели (значения от 1 до 7)
+*/
+enum class days { Mon = 1, Tue, Wed, Thu, Fri, Sat, Sun };
+
+/**
+* \brief Точка входа в программу.
+* \return Код ошибки (0 - успех).
+*/
 int main()
 {
-  int Day;
-  string Week[7] = { "Понедельник\n", "Вторник\n", "Среда\n", "Четверг\n", "Пятница\n", "Суббота\n", "Воскресенье\n" };
-  cout << "Введите день недели: ";
-  cin >> Day;
-  while (Day > 7)
-  {
-    Day -= 7;
-  }
-  cout << Week[Day - 1];
-  
+    setlocale(LC_ALL, "Russian");
+    cout << "Что вы хотите узнать: месяц (0) или день недели (1)" << "\n";
+    int type;
+    cin >> type;
 
-int Number;
-string Month[12] = { "Январь\n", "Февраль\n", "Март\n", "Апрель\n", "Май\n", "Июнь\n", "Июль\n", "Август\n", "Сентябрь\n", "Октябрь\n", "Ноябрь\n", "Декабрь\n"};
-cout << "Введите месяц: ";
-cin >> Number;
-while (Number > 12)
-{
-    Number -= 12;
-}
-    cout << Month[Number - 1];
+    const auto choice = static_cast<mainChoice>(type);
+    switch (choice)
+    {
+    case mainChoice::month:
+    {
+        cout << "Введите номер месяца" << "\n";
+        int month;
+        cin >> month;
+
+        const auto monthChoice = static_cast<months>(month);
+
+        switch (monthChoice)
+        {
+        case months::Jan:
+        {
+            cout << "Январь";
+            break;
+        }
+        case months::Feb:
+        {
+            cout << "Февраль";
+            break;
+        }
+        case months::Mar:
+        {
+            cout << "Март";
+            break;
+        }
+        case months::Apr:
+        {
+            cout << "Апрель";
+            break;
+        }
+        case months::May:
+        {
+            cout << "Май";
+            break;
+        }
+        case months::Jun:
+        {
+            cout << "Июнь";
+            break;
+        }
+        case months::Jul:
+        {
+            cout << "Июль";
+            break;
+        }
+        case months::Aug:
+        {
+            cout << "Август";
+            break;
+        }
+        case months::Sep:
+        {
+            cout << "Сентябрь";
+        }
+        case months::Oct:
+        {
+            cout << "Октябрь";
+            break;
+        }
+        case months::Nov:
+        {
+            cout << "Ноябрь";
+            break;
+        }
+        case months::Dec:
+        {
+            cout << "Декабрь";
+            break;
+        }
+        }
+        break;
+    }
+    case mainChoice::day:
+    {
+        cout << "Введите номер дня" << "\n";
+        int day;
+        cin >> day;
+
+        const auto dayChoice = static_cast<days>(day);
+
+        switch (dayChoice)
+        {
+        case days::Mon:
+        {
+            cout << "Понедельник";
+            break;
+        }
+        case days::Tue:
+        {
+            cout << "Вторник";
+            break;
+        }
+        case days::Wed:
+        {
+            cout << "Среда";
+            break;
+        }
+        case days::Thu:
+        {
+            cout << "Четверг";
+            break;
+        }
+        case days::Fri:
+        {
+            cout << "Пятница";
+            break;
+        }
+        case days::Sat:
+        {
+            cout << "Суббота";
+            break;
+        }
+        case days::Sun:
+        {
+            cout << "Воскресенье";
+            break;
+        }
+        }
+        break;
+    }
+    }
+    cout << endl;
     return 0;
 }

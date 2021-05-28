@@ -1,47 +1,50 @@
-//
+ //
 //  main.cpp
 //  1-2
 //
-//  Created by Даниил Шуриков on 29.04.2021.
+//  Created by Даниил Шуриков on 17.05.2021.
 //
-
+#define _USE_MATH_DEFINES
 #include <iostream>
-#include <math.h>
-
+#include <cmath>
 using namespace std;
-class Calculate
-{
-  int r,h ;
 
-public:
-    void getdata()
-    {
-        cout<<"\nВведите радиус и высоту";
-        cin>>r>>h;
+/**
+*\brief Функция для расчета объема конуса
+*\param r Радиус сферы
+*\param a Угол при вершине конуса
+*\return Объем конуса
+**/
+double GetVolume(const double r, const double a);
+/**
+*\brief Функция для расчета полной площади поверхности коунса
+*\param r Радиус сферы
+*\param a Угол при вершине конуса
+*\return Полная площадь поверхности конуса
+**/
+double GetSquare(const double r, const double a);
 
-    }
-    void Surfacearea()
-    {
-            float s;
-        s = 3.14 * r * (r + h);
-        cout<<"\nПолная поверхность конуса="<<s;
-    }
-   
-    void volume()
-    
-    {
-        float v;
-        v = (3.14 * r * r * h)/3;
-     cout<<"\nОбъёем конуса="<<v;
-    }
-
-};
-Calculate a1,a2,g;
 int main()
 {
-g.getdata();
-    a1.getdata();
-    a2.getdata();
-a1.Surfacearea();
-a2.volume();
+    double r;
+    double a;
+    cout << "Введите радиус сферы и угол при вершине конуса (в радианах):\n";
+    cin >> r;
+    cin >> a;
+    auto volume = GetVolume(r, a);
+    auto square = GetSquare(r, a);
+    cout << "Объем конуса равен: " << volume << endl;
+    cout << "Полна площадь поверхности конуса равна: " << square;
+}
+
+double GetVolume(const double r, const double a)
+{
+    auto volume = M_PI * pow(r, 3) * (1 + cos(a)) * pow(sin(2 * a), 2) / 3;
+    return volume;
+}
+
+double GetSquare(const double r, const double a)
+{
+    auto square = M_PI * pow(r, 2) * sin(2 * a) * (sin(2 * a) + 2 * cos(a));
+    return square;
 }

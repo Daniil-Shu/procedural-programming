@@ -2,7 +2,7 @@
 //  main.cpp
 //  2-2
 //
-//  Created by Даниил Шуриков on 09.05.2021.
+//  Created by Даниил Шуриков on 17.05.2021.
 //
 
 #include <iostream>
@@ -10,34 +10,34 @@
 
 using namespace std;
 
-const int a = 20.3;
-double x, y;
+double GetFirst (const double x);
+double GetSecond (const double x, const double a);
 
-void input()
-{
-    std::cout << "Введите x: ";
-    cin >> x;
-}
-
-void solution()
-{
-    if (x > 1)
-    {
-        y = log(x + 1);
-        std::cout << "Значение y равно - " << y << endl;
-    }
-    else if (x <= 1)
-     {
-        y = sin(2) * sqrt(abs(a * x));
-        std::cout << "Значение y равно - " << y << endl;
-     }
-}
 int main()
 {
-    input();
+    const double a = 20.3;
+    double x;
+    cout << "Введите число \n";
+    cin >> x;
+    if (x > 1)
+    {
+        auto first = GetFirst(x);
+        cout << first;
+    }
+    
+    else
+    {
+        auto second = GetSecond(x,a);
+        cout << second;
+    }
+}
 
-    solution();
+double GetFirst (double x)
+{
+    return log10(x + 1);
+}
 
-
-    return 0;
+double GetSecond (double x, double a)
+{
+    return sin(2) * sqrt(abs(a * x));
 }
